@@ -21,7 +21,8 @@ pipeline {
     stage('Build') {
       steps {
         sh '''
-          echo "Placeholder $(date)"
+          echo "Maven build $(date)"
+          mvn install
         '''
       }
     }
