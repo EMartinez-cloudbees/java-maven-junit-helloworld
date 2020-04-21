@@ -9,7 +9,20 @@ pipeline {
 
     stage('HelloStage') {
       steps {
-        sh 'echo "Hello Junit Maven Pipeline $(date)"'
+        sh '''
+          echo "Hello Junit Maven Pipeline $(date)"
+          echo "PATH=${PATH}"
+          echo "M2_HOME=${M2_HOME}"
+        '''
+      }
+    }
+    
+    
+    stage('Build') {
+      steps {
+        sh '''
+          echo "Placeholder $(date)"
+        '''
       }
     }
     
