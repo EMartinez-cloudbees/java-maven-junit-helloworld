@@ -10,7 +10,7 @@ pipeline {
 
     stage('HelloStage') {
       steps {
-        sh 'echo "stage Hello $(date)"'
+        sh 'echo "Hello Junit Maven Pipeline $(date)"'
       }
     }
     
