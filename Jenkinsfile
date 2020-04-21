@@ -25,11 +25,6 @@ pipeline {
           mvn install
         '''
       }
-      post {
-          success {
-            junit 'target/failsafe-reports/**/*.xml'   
-          }
-      }
     }
     
     
