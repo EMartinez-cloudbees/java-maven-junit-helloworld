@@ -25,7 +25,7 @@ pipeline {
           echo "NODE_NAME=${NODE_NAME}"
           echo "JOB_NAME=${JOB_NAME}"
           echo "BRANCH_NAME=${BRANCH_NAME}"
-          echo "CHANGE_AUTHOR=${CHANGE_AUTHOR}             
+          echo "CHANGE_AUTHOR=${CHANGE_AUTHOR}"          
           echo "CHANGE_AUTHOR_DISPLAY_NAME=${CHANGE_AUTHOR_DISPLAY_NAME}"  
           echo "ORIG_AUTHOR=${ORIG_AUTHOR}"
           echo "STAGE_AUTHOR=${STAGE_AUTHOR}"  
