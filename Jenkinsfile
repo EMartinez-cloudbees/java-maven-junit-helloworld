@@ -30,7 +30,16 @@ pipeline {
             junit 'target/failsafe-reports/**/*.xml'   
           }
       }
-
+    }
+    
+    
+    stage('Test') {
+      steps {
+        sh '''
+          echo "Publish test results $(date)"
+        '''
+        junit(testResults: 'target/failsafe-reports/**/*.xml', allowEmptyResults: true)
+      }
     }
     
     
