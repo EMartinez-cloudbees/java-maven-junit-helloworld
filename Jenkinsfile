@@ -6,7 +6,7 @@ pipeline {
   }
     
   tools { 
-    maven 'Maven_3.6.3' 
+    maven 'M3' 
   }  
   options { buildDiscarder(logRotator(numToKeepStr: '1')) }
 
