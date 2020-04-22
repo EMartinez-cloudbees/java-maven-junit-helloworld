@@ -46,18 +46,33 @@ pipeline {
         withEnv(["STAGE_AUTHOR=BuildStageElenaMartinez"]) {
           echo "STAGE_AUTHOR=${STAGE_AUTHOR}"           
         }
-
       }
     }
     
+    stage('Parallel Stages') {
     
-    stage('Test') {
-      steps {
-        sh '''
-          echo "Publish test results $(date)"
-        '''
-        junit(testResults: 'target/failsafe-reports/**/*.xml', allowEmptyResults: true)
+      parallel {
+      
+        stage('Archive') {
+          steps {
+            sh '''
+              echo "Archive jars: $(date)"
+            '''      
+            archiveArtifacts(artifacts: 'target/**/*.jar', fingerprint: true) 
+          }
+        }
+    
+        stage('Test') {
+          steps {
+            sh '''
+              echo "Publish test results $(date)"
+            '''
+            junit(testResults: 'target/failsafe-reports/**/*.xml', allowEmptyResults: true)
+          }
+        }
+        
       }
+                      
     }
     
     
